@@ -46,7 +46,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid user data");
   }
 
-  res.send("Register Route");
 });
 // @desc   Login user
 // @route  /api/users/login
