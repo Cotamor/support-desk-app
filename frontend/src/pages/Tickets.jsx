@@ -11,7 +11,7 @@ const Tickets = () => {
   );
   const dispatch = useDispatch();
 
-  // Method A:
+  // Brad's Method: 
   // useEffect(() => {
   //   return () => {
   //     if (isSuccess) {
@@ -24,7 +24,7 @@ const Tickets = () => {
   //   dispatch(getTickets());
   // }, [dispatch]);
 
-  // Method B:
+  // Will's Method:
   useEffect(() => {
     if (!isSuccess) {
       dispatch(getTickets());
