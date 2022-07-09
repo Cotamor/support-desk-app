@@ -11,30 +11,30 @@ const Tickets = () => {
   );
   const dispatch = useDispatch();
 
-  // Method A:
-  // useEffect(() => {
-  //   return () => {
-  //     if (isSuccess) {
-  //       dispatch(reset());
-  //     }
-  //   };
-  // }, [dispatch, isSuccess]);
-
-  // useEffect(() => {
-  //   dispatch(getTickets());
-  // }, [dispatch]);
-
-  // Method B:
+  // Brad's Method: 
   useEffect(() => {
-    if (!isSuccess) {
-      dispatch(getTickets());
-    }
     return () => {
       if (isSuccess) {
         dispatch(reset());
       }
     };
   }, [dispatch, isSuccess]);
+
+  useEffect(() => {
+    dispatch(getTickets());
+  }, [dispatch]);
+
+  // Will's Method: not Working
+  // useEffect(() => {
+  //   if (!isSuccess) {
+  //     dispatch(getTickets());
+  //   }
+  //   return () => {
+  //     if (isSuccess) {
+  //       dispatch(reset());
+  //     }
+  //   };
+  // }, [dispatch, isSuccess]);
 
   if (isLoading) {
     return <Spinner />;
