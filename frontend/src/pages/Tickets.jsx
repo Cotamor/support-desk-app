@@ -12,28 +12,28 @@ const Tickets = () => {
   const dispatch = useDispatch();
 
   // Brad's Method:
-  // useEffect(() => {
-  //   return () => {
-  //     if (isSuccess) {
-  //       dispatch(reset());
-  //     }
-  //   };
-  // }, [dispatch, isSuccess]);
-
-  // useEffect(() => {
-  //   dispatch(getTickets());
-  // }, [dispatch]);
-
-  // Will's Method: not Working
   useEffect(() => {
-    dispatch(getTickets());
-
     return () => {
       if (isSuccess) {
         dispatch(reset());
       }
     };
   }, [dispatch, isSuccess]);
+
+  useEffect(() => {
+    dispatch(getTickets());
+  }, [dispatch]);
+
+  // Will's Method: not Working
+  // useEffect(() => {
+  //   dispatch(getTickets());
+
+  //   return () => {
+  //     if (isSuccess) {
+  //       dispatch(reset());
+  //     }
+  //   };
+  // }, [dispatch, isSuccess]);
 
   if (isLoading) {
     return <Spinner />;

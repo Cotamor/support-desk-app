@@ -82,7 +82,6 @@ export const closeTicket = createAsyncThunk(
     }
   }
 );
-// Deleter user's ticket
 
 export const ticketSlice = createSlice({
   name: "ticket",
